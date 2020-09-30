@@ -1,0 +1,46 @@
+{
+  "name": "@augejs/examples-pack-nodejs",
+  "version": "0.0.1-rc.3",
+  "bin": "./dist/main.js",
+  "scripts": {
+    "lint": "echo lint",
+    "test": "echo test",
+    "start": "ts-node ./src/main.ts",
+    "prebuild": "rimraf dist && rimraf output",
+    "build": "npm run build:js && npm run build:assets && npm run build:apidoc",
+    "build:js": "tsc --build ./tsconfig.json",
+    "build:assets": "copyfiles locales/**/* dist && copyfiles public/**/* dist",
+    "build:macos-bin": "npm run build && pkg . -t node12-macos-x64 -o ./output/mac-app",
+    "build:linux-bin": "npm run build && pkg . -t node12-linux-x64 -o ./output/app",
+    "build:node-docker": "docker build -t \"${npm_package_name:1}:$npm_package_version\" .",
+    "build:bin-docker": "docker build -f DockerfileExe -t \"bin-${npm_package_name:1}:$npm_package_version\" .",
+    "build:apidoc": "apidoc -i src/ -f \".*\\.ts$\" -t \"apidoc/template\" -o public/apidoc"
+  },
+  "apidoc": {
+    "title": "Custom apiDoc browser title"
+  },
+  "pkg": {
+    "scripts": "dist/**/*.js",
+    "assets": "dist/**/*"
+  },
+  "devDependencies": {
+    "apidoc": "^0.25.0",
+    "copyfiles": "^2.4.0",
+    "pkg": "^4.4.9",
+    "rimraf": "^3.0.2",
+    "@types/node": "^14.6.4",
+    "eslint": "^7.8.1",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@augejs/module-core": "^1.0.1-rc.5",
+    "@augejs/i18n": "^1.0.1-rc.5",
+    "@augejs/koa": "^1.0.1-rc.5",
+    "@augejs/koa-bodyparser": "^1.0.0-rc.4",
+    "@augejs/koa-static": "^1.0.0-rc.4"
+  }
+}

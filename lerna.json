@@ -1,0 +1,27 @@
+{
+  "npmClient": "npm",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "**/*.md",
+        "**/__tests__/**"
+      ],
+      "message": "chore(release): publish %s",
+      "registry": "https://registry.npmjs.org"
+    },
+    "version": {
+      "allowBranch": [
+        "master",
+        "feature/*"
+      ]
+    }
+  },
+  "packages": [
+    "packages/*"
+  ],
+  "publishConfig": {
+    "directory": "dist",
+    "access": "public"
+  },
+  "version": "0.0.1-rc.1"
+}

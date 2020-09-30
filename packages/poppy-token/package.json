@@ -1,0 +1,27 @@
+{
+  "name": "@augejs/examples-poppy-token",
+  "scripts": {
+    "start": "ts-node ./src/main.ts",
+    "prebuild": "rimraf dist",
+    "build": "tsc --build ./tsconfig.json",
+    "postbuild": "copyfiles public/* dist/public/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "apidoc": "apidoc -i src/ -f \".*\\.ts$\" -t \"apidoc/template\" -o public/apidoc"
+  },
+  "apidoc": {
+    "title": "Custom apiDoc browser title"
+  },
+  "devDependencies": {
+    "apidoc": "^0.25.0",
+    "copyfiles": "^2.4.0",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@augejs/i18n": "^1.0.1-rc.5",
+    "@augejs/koa": "^1.0.1-rc.5",
+    "@augejs/koa-bodyparser": "^1.0.0-rc.4",
+    "@augejs/koa-static": "^1.0.0-rc.4",
+    "@augejs/poppy-token": "0.0.7",
+    "@augejs/redis": "^1.0.1-rc.5"
+  }
+}
