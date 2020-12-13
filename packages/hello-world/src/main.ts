@@ -1,11 +1,3 @@
-
-/**
- * Usage:
- * 
- * npm install @augejs/module-core reflect-metadata -S
- * 
- */
-
 import { Module, boot } from '@augejs/module-core';
 
 // we use a @Module decorator to define a module
