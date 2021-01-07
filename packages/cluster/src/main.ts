@@ -14,7 +14,7 @@ import {
 
 @Cluster({
   workers: 2
-})  
+}) 
 @WebServer()
 @Module()
 class AppModule {

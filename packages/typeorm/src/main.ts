@@ -1,35 +1,46 @@
-import { Module, Logger, ILogger, boot, Config } from '@augejs/module-core';
+import { Module, Logger, ILogger, boot, Config, GetLogger } from '@augejs/module-core';
 
 import { WebServer } from '@augejs/koa';
-import { KoaStatic, KoaFavicon, KoaSend } from '@augejs/koa-static';
-import { AccessTokenConfig } from '@augejs/poppy-token';
-import { RedisConfig } from '@augejs/redis';
-import { I18n } from '@augejs/i18n';
-import { KoaBodyParserMiddleware } from '@augejs/koa-bodyparser';
+import { Typeorm } from '@augejs/typeorm';
 
-import { UserController } from './modules/user/controllers';
+import { getConnection } from '@augejs/typeorm';
 
-const logger:ILogger = Logger.getLogger('app');
-
-@KoaBodyParserMiddleware()
-@KoaStatic({
-  prefix: '/public'
-})
+import { UserModule } from './modules/user/User.module';
 @WebServer({
   port: 3003
 })
+@Typeorm({
+  name: 'boss',
+  type: 'mysql',
+  host: 'rm-uf6q042ewut07i6b82m.mysql.rds.aliyuncs.com',
+  port: 3306,
+  database: 'boss',
+  username: 'huser',
+  password: 'nKmjc3CT6aThlMer',
+  entities: [
+    ...Object.values(UserModule.Entities),
+  ],
+  synchronize: true,
+  logging: false,
+})
 @Module({
-  providers: [
-    UserController
-  ]
+  subModules: [
+    UserModule
+  ],
 })
 class AppModule {
 
+  @GetLogger()
+  logger!: ILogger;
+
   async onInit() {
-    logger.info('app onInit');
+    this.logger.info('app onInit');
   }
 
   async onAppDidReady () {
+    this.logger.info('app onAppDidReady');
+
+    this.logger.info(JSON.stringify(getConnection('boss').manager.find(UserModule.Entities.User)));
   }
 }
 
