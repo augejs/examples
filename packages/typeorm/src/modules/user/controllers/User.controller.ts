@@ -1,4 +1,4 @@
-import { Provider } from '@augejs/module-core';
+import { Provider } from '@augejs/core';
 import { IAccessTokenManager, AccessTokenMiddleware } from '@augejs/poppy-token';
 import { Prefix, RequestMapping, RequestParams , IKoaContext} from '@augejs/koa';
 import { AccessData } from '@augejs/poppy-token/dist/utils';

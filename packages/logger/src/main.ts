@@ -1,11 +1,11 @@
 /**
  * Usage:
  * 
- * npm install @augejs/module-core @augejs/log4js reflect-metadata -S
+ * npm install @augejs/core @augejs/log4js reflect-metadata -S
  * 
  */
 
-import { Module, Logger, ILogger, boot } from '@augejs/module-core';
+import { Module, Logger, ILogger, boot } from '@augejs/core';
 
 import { Log4js } from '@augejs/log4js';
 

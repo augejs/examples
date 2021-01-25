@@ -1,12 +1,12 @@
 /**
  * Usage:
  * 
- * npm install @augejs/module-core @augejs/file-config reflect-metadata -S
+ * npm install @augejs/core @augejs/file-config reflect-metadata -S
  * 
  */
 
 import path from 'path';
-import { Module, boot, Config, Value } from '@augejs/module-core';
+import { Module, boot, Config, Value } from '@augejs/core';
 import { YAMLConfig } from '@augejs/file-config';
 
 @YAMLConfig(path.join(process.cwd(), 'config/app.yml'))

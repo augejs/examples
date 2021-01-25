@@ -1,4 +1,4 @@
-import { Module, ILogger, boot, GetLogger, GetContainer, Container,  } from '@augejs/module-core';
+import { Module, ILogger, boot, GetLogger, GetContainer, Container,  } from '@augejs/core';
 
 import {
   AkitaDog,

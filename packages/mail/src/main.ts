@@ -1,5 +1,5 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/module-core';
-import { MAIL_TOKEN, MailTransport, Mail } from '@augejs/mail';
+import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
+import { , MailTransport, Mail } from '@augejs/mail';
 
 const logger:ILogger = Logger.getLogger('app');
 

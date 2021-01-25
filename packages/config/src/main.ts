@@ -1,11 +1,11 @@
 /**
  * Usage:
  * 
- * npm install @augejs/module-core reflect-metadata -S
+ * npm install @augejs/core reflect-metadata -S
  * 
  */
 
-import { Module, boot, Config, Value } from '@augejs/module-core';
+import { Module, boot, Config, Value } from '@augejs/core';
 
 @Config({
   custom: {

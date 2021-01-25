@@ -5,7 +5,7 @@ import {
   Value,
   Module,
   IScanNode
-} from '@augejs/module-core';
+} from '@augejs/core';
 
 import {
   WebServer,

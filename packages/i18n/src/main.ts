@@ -1,7 +1,7 @@
 
 
 
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/module-core';
+import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
 import { I18N_IDENTIFIER, I18n, II18n } from '@augejs/i18n';
 
 const logger:ILogger = Logger.getLogger('app');

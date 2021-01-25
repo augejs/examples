@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import ip from 'ip';
 import { pathToRegexp } from 'path-to-regexp';
 
-import { Module, Inject, Value, __appRootDirName} from '@augejs/module-core';
+import { Module, Inject, Value, __appRootDirName} from '@augejs/core';
 import { WebServer, IKoaApplication, KOA_WEB_SERVER_IDENTIFIER, IKoaContext, RequestMapping } from '@augejs/koa';
 import { KoaStatic } from '@augejs/koa-static';
 

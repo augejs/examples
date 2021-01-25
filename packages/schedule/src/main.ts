@@ -4,7 +4,7 @@ import {
   GetLogger, 
   Config,
   Module,
-  IScanNode} from '@augejs/module-core';
+  IScanNode} from '@augejs/core';
 
 import { ScheduleManager, Schedule } from '@augejs/schedule';
 

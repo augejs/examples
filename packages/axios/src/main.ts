@@ -1,6 +1,6 @@
 
 
-import { Module, ILogger, Inject, boot, GetLogger } from '@augejs/module-core';
+import { Module, ILogger, Inject, boot, GetLogger } from '@augejs/core';
 import { AXIOS_IDENTIFIER, AxiosConfig, AxiosInstance } from '@augejs/axios';
 
 @Module()

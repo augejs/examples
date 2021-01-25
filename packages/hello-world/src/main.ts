@@ -1,4 +1,4 @@
-import { Module, boot } from '@augejs/module-core';
+import { Module, boot } from '@augejs/core';
 
 // we use a @Module decorator to define a module
 @Module()

@@ -1,5 +1,5 @@
 import path from 'path';
-import { Module, Logger, ILogger, boot, Config } from '@augejs/module-core';
+import { Module, Logger, ILogger, boot, Config } from '@augejs/core';
 
 import { WebServer } from '@augejs/koa';
 import { KoaStatic, KoaFavicon, KoaSend } from '@augejs/koa-static';

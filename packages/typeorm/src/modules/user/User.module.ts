@@ -2,7 +2,7 @@ import {
   ILogger, 
   GetLogger, 
   Module,
-} from '@augejs/module-core';
+} from '@augejs/core';
 
 import { UserController } from './controllers';
 import * as Entities from './entities';

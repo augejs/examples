@@ -1,4 +1,4 @@
-import { Module, Logger, ILogger, boot, Config, GetLogger } from '@augejs/module-core';
+import { Module, Logger, ILogger, boot, Config, GetLogger } from '@augejs/core';
 
 import { WebServer } from '@augejs/koa';
 import { Typeorm } from '@augejs/typeorm';

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Module, IScanNode } from '@augejs/module-core';
+import { Module, IScanNode } from '@augejs/core';
 import commander from 'commander';
 
 @Module()

@@ -1,4 +1,4 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/module-core';
+import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
 import { VIEWS_IDENTIFIER, RenderFunction, Views} from '@augejs/views';
 import path from 'path';
 

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { Module, Logger, ILogger, boot, Cluster, LifecycleOnAppWillCloseHook, IScanNode, __appRootDirName } from '@augejs/module-core';
+import { Module, Logger, ILogger, boot, Cluster, LifecycleOnAppWillCloseHook, IScanNode, __appRootDirName } from '@augejs/core';
 
 import { RequestMapping, WebServer } from '@augejs/koa';
 import { KoaStatic, KoaFavicon, KoaSend } from '@augejs/koa-static';

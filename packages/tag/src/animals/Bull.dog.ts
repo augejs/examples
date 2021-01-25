@@ -1,4 +1,4 @@
-import { Tag, Provider } from '@augejs/module-core';
+import { Tag, Provider } from '@augejs/core';
 import { IDog, IAnimal } from '../interfaces';
 
 @Tag('Animal')

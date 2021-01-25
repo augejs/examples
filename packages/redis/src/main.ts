@@ -1,4 +1,4 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/module-core';
+import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
 import { REDIS_IDENTIFIER, Commands, RedisConfig } from '@augejs/redis';
 
 const logger:ILogger = Logger.getLogger('app');

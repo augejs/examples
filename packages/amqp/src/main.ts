@@ -1,4 +1,4 @@
-import { Module, ILogger, Inject, boot, GetLogger } from '@augejs/module-core';
+import { Module, ILogger, Inject, boot, GetLogger } from '@augejs/core';
 import { Amqp, AMQP_IDENTIFIER, AmqpConnectionManager, ChannelWrapper, ConfirmChannel, Message } from '@augejs/amqp';
 
 import {

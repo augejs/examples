@@ -1,4 +1,4 @@
-import { Provider, Inject, Logger, GetLogger, ILogger } from '@augejs/module-core';
+import { Provider, Inject, Logger, GetLogger, ILogger } from '@augejs/core';
 import { Prefix, RequestMapping, RequestParams , IKoaContext} from '@augejs/koa';
 import { I18N_IDENTIFIER, II18n } from '@augejs/i18n';
 

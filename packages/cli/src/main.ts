@@ -1,4 +1,4 @@
-import { boot, Logger, LogLevel } from '@augejs/module-core';
+import { boot, Logger, LogLevel } from '@augejs/core';
 
 import { ProgramModule } from './Program.module';
 import { WebServerModule } from './WebServer.module';
