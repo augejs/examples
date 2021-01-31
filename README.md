@@ -39,7 +39,7 @@ visit [augejs.github.io](https://github.com/augejs/augejs.github.io). :tada:
 
 ## Contributing
 
-Feel free to dive in! [Open an issue](https://github.com/augejs/core/issues) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/augejs/examples/issues) or submit PRs.
 
 `augejs` follows the [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) Code of Conduct.
 
