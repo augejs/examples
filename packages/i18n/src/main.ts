@@ -48,10 +48,10 @@ class AppModule {
 
     logger.info(this.i18n.formatList(['5 hours', '3 minutes'], {type: 'unit'}));
 
-    logger.info(this.i18n.formatDisplayName('zh-Hans-SG', {type: 'language'}));
-    logger.info(this.i18n.formatDisplayName('Deva', {type: 'script'}));
+    // logger.info(this.i18n.formatDisplayName('zh-Hans-SG', {type: 'language'}));
+    // logger.info(this.i18n.formatDisplayName('Deva', {type: 'script'}));
 
-    logger.info(this.i18n.formatDisplayName('CNY', {type: 'currency'}));
+    // logger.info(this.i18n.formatDisplayName('CNY', {type: 'currency'}));
 
     logger.info(this.i18n.formatMessage({id: 'hello'}, {
       name: 'Sara'

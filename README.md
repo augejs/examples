@@ -14,6 +14,7 @@ https://github.com/augejs/augejs.github.io
 
 - [Description](#description)
 - [Document](#document)
+- [Usage](#usage)
 - [Related Efforts](#related-efforts)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
@@ -27,6 +28,15 @@ https://github.com/augejs/augejs.github.io
 ## Document
 
 visit [augejs.github.io](https://github.com/augejs/augejs.github.io). :tada:
+
+## Usage
+
+```ts
+npm install
+npm run init;
+cd $package
+npm run start
+```
 
 ## Related Efforts
 
