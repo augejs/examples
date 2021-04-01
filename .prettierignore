@@ -1,2 +1,2 @@
-apps/**/*.d.ts
-apps/**/*.js
+examples/**/*.d.ts
+examples/**/*.js
