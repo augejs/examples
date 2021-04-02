@@ -1,0 +1,23 @@
+webserver:
+  port: 5003
+
+static:
+  prefix: '/public'
+
+log4js:
+  appenders:
+    out:
+      type: 'stdout'
+  categories:
+    default:
+      appenders:
+        - 'out'
+      level: 'all'
+
+mail:
+  host: "smtp.163.com"
+  port: 25
+  secure: false
+  auth:
+    user: xxxxx@xx.com
+    pass: 'xxx'

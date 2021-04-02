@@ -1,27 +1,32 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
-import { REDIS_IDENTIFIER, Commands, RedisConfig } from '@augejs/redis';
+import { Module, ILogger, boot, GetLogger } from '@augejs/core';
+import { RedisConnection } from '@augejs/redis';
+import { WebServer } from '@augejs/koa';
+import { KoaStatic } from '@augejs/koa-static';
+import { Log4js } from '@augejs/log4js';
+import { YAMLConfig } from '@augejs/file-config';
+import { RedisController } from './RedisController';
 
-const logger:ILogger = Logger.getLogger('app');
-
-@RedisConfig({
-  host: 'xxxxxx',
-  port: 6379,
-  password: 'cccccc'
+@RedisConnection()
+@Log4js()
+@WebServer()
+@KoaStatic()
+@YAMLConfig()
+@Module({
+  providers: [
+    RedisController
+  ]
 })
-@Module()
 class AppModule {
 
-  @Inject(REDIS_IDENTIFIER)
-  redis!: Commands;
+  @GetLogger()
+  logger!: ILogger;
 
   async onInit() {
-    logger.info('app onInit');
+    this.logger.info('app onInit');
   }
 
   async onAppDidReady () {
-    logger.info('app onAppDidReady');
-
-    this.redis.set('hello', 'world');
+    this.logger.info('app onAppDidReady');
   }
 }
 

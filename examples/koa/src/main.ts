@@ -9,48 +9,10 @@ import {
 
 import {
   WebServer,
-  Middleware, 
-  HostMiddleware,
-  Prefix, 
   RequestMapping,
-  RequestParams,
-  IKoaContext,
   } from '@augejs/koa';
 
 import { ModuleA } from './moduleA/ModuleA';
-
-// @Prefix('/module')
-// @Middleware(
-//   async (_, next: CallableFunction) => {
-//     console.log('========>>>>>1 start');
-//     await next();
-//     console.log('========>>>>>1 end');
-//   }
-// )
-// @Module({
-//   providers: [
-//     ClassMiddleware,
-//   ]
-// })
-// class Module1 {
-//   @GetLogger()
-//   logger!:ILogger;
-
-//   @RequestMapping.All()
-//   @Middleware(
-//     async (_, next: CallableFunction) => {
-//       console.log('========>>>>>2 start');
-//       await next();
-//       console.log('========>>>>>2 end');
-//     }
-//   )
-//   test(@RequestParams.Context() context: IKoaContext) {
-//     this.logger.info(`route test ${context}`);
-//     return {
-//       name: 'hello'
-//     }
-//   }
-// }
 
 @WebServer()
 @Module({

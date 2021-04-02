@@ -1,22 +1,25 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
-import { MAIL_IDENTIFIER , MailTransport, Mail } from '@augejs/mail';
+import { Module, Logger, ILogger, boot } from '@augejs/core';
+import { MailTransport } from '@augejs/mail';
+import { WebServer, RequestMapping, RequestParams, IKoaContext } from '@augejs/koa';
+import { KoaStatic } from '@augejs/koa-static';
+import { Log4js } from '@augejs/log4js';
+import { YAMLConfig } from '@augejs/file-config';
+import { MailController } from './MailController';
+
 
 const logger:ILogger = Logger.getLogger('app');
 
-@MailTransport({
-  host: "smtp.163.com",
-  port: 25,
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: 'xxxx@163.com', // generated ethereal user
-    pass: 'xxxx', // generated ethereal password
-  },
+@MailTransport({})
+@Log4js()
+@WebServer()
+@KoaStatic()
+@YAMLConfig()
+@Module({
+  providers: [
+    MailController,
+  ]
 })
-@Module()
 class AppModule {
-
-  @Inject(MAIL_IDENTIFIER)
-  mail!: Mail;
 
   async onInit() {
     logger.info('app onInit');
@@ -24,16 +27,11 @@ class AppModule {
 
   async onAppDidReady () {
     logger.info('app onAppDidReady');
+  }
 
-    const results = await this.mail.sendMail({
-      from: '"Fred Foo 👻" <xxxxx@163.com>', // sender address
-      to: "xxxx@163.com", // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
-    });
-
-    logger.info(results);
+  @RequestMapping.Get('/')
+  home(@RequestParams.Context() context: IKoaContext) {
+    context.redirect('/public/apidoc/index.html');
   }
 }
 
