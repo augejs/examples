@@ -41,4 +41,4 @@ build/config\.gypi
 **/dist
 **/output
 
-public/apidoc
+**/public/apidoc/
