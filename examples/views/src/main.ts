@@ -1,27 +1,24 @@
-import { Module, Logger, ILogger, Inject, boot } from '@augejs/core';
-import { VIEWS_IDENTIFIER, RenderFunction, Views} from '@augejs/views';
-import path from 'path';
+import { Module, ILogger, boot, GetLogger } from '@augejs/core';
+import { Views } from "@augejs/views";
+import { WebServer } from '@augejs/koa';
+import { ViewController } from './controllers/ViewController';
 
-const logger:ILogger = Logger.getLogger('app');
-
-@Views({
-  root: path.join(process.cwd(), 'views'),
-  minifier: true
+@Views()
+@Module({
+  providers: [ ViewController ]
 })
-@Module()
-class AppModule {
-
-  @Inject(VIEWS_IDENTIFIER)
-  render!: RenderFunction;
+@WebServer()
+class AppModule { 
+  
+  @GetLogger()
+  logger!: ILogger;
 
   async onInit() {
-    logger.info('app onInit');
+    this.logger.info('app onInit');
   }
 
   async onAppDidReady () {
-    logger.info('app onAppDidReady');
-    const content: string = await this.render('index.html');
-    logger.info(content);
+    this.logger.info('app onAppDidReady');
   }
 }
 

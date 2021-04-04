@@ -8,6 +8,11 @@
   },
   "dependencies": {
     "@augejs/core": "^1.0.6",
+    "@augejs/file-config": "^1.2.5",
+    "@augejs/koa": "^1.2.5",
+    "@augejs/koa-bodyparser": "^1.0.10",
+    "@augejs/koa-static": "^1.0.10",
+    "@augejs/log4js": "^1.2.5",
     "@augejs/views": "^1.2.5"
   }
 }

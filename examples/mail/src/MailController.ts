@@ -24,8 +24,8 @@ export class MailController {
    async send(): Promise<string> {
 
     const results = await this.mail.sendMail({
-      from: '"Fred Foo 👻" <xxxxx@163.com>', // sender address
-      to: "xxxx@163.com", // list of receivers
+      from: '"Fred Foo 👻" <alex_20190502@163.com>', // sender address
+      to: "alex_20190502@163.com", // list of receivers
       subject: "Hello ✔", // Subject line
       text: "Hello world?", // plain text body
       html: "<b>Hello world?</b>", // html body

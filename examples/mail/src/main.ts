@@ -1,13 +1,10 @@
-import { Module, Logger, ILogger, boot } from '@augejs/core';
+import { Module, ILogger, boot, GetLogger } from '@augejs/core';
 import { MailTransport } from '@augejs/mail';
 import { WebServer, RequestMapping, RequestParams, IKoaContext } from '@augejs/koa';
 import { KoaStatic } from '@augejs/koa-static';
 import { Log4js } from '@augejs/log4js';
 import { YAMLConfig } from '@augejs/file-config';
 import { MailController } from './MailController';
-
-
-const logger:ILogger = Logger.getLogger('app');
 
 @MailTransport({})
 @Log4js()
@@ -21,12 +18,15 @@ const logger:ILogger = Logger.getLogger('app');
 })
 class AppModule {
 
+  @GetLogger()
+  logger!: ILogger;
+
   async onInit() {
-    logger.info('app onInit');
+    this.logger.info('app onInit');
   }
 
   async onAppDidReady () {
-    logger.info('app onAppDidReady');
+    this.logger.info('app onAppDidReady');
   }
 
   @RequestMapping.Get('/')

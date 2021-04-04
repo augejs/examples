@@ -15,9 +15,9 @@ log4js:
       level: 'all'
 
 mail:
-  host: "smtp.163.com"
+  host: smtp.163.com
   port: 25
   secure: false
   auth:
-    user: xxxxx@xx.com
-    pass: 'xxx'
+    user: alex_20190502@163.com
+    pass: IBXLIAHJVGYEXINB
