@@ -1,37 +1,36 @@
-import { Module, Logger, ILogger, boot, Config, GetLogger } from '@augejs/core';
+import { Module, ILogger, boot, GetLogger, Inject } from '@augejs/core'
+import { IKoaContext, RequestMapping, RequestParams, WebServer } from '@augejs/koa'
+import { Typeorm } from '@augejs/typeorm'
+import { KoaStatic } from '@augejs/koa-static';
+import { Log4js } from '@augejs/log4js';
+import { YAMLConfig } from '@augejs/file-config';
+import { UserRepository } from './repositories/UserRepository';
+import { UserController } from './controllers/UserController';
+import { SnowflakeService } from './services/SnowflakeService';
 
-import { WebServer } from '@augejs/koa';
-import { Typeorm } from '@augejs/typeorm';
+process.env.NODE_ENV = process.env.NODE_ENV ?? 'production';
 
-import { getConnection } from '@augejs/typeorm';
-
-import { UserModule } from './modules/user/User.module';
-@WebServer({
-  port: 3003
-})
+@WebServer()
 @Typeorm({
-  name: 'boss',
-  type: 'mysql',
-  host: 'rm-uf6q042ewut07i6b82m.mysql.rds.aliyuncs.com',
-  port: 3306,
-  database: 'boss',
-  username: 'huser',
-  password: 'nKmjc3CT6aThlMer',
-  entities: [
-    ...Object.values(UserModule.Entities),
-  ],
-  synchronize: true,
-  logging: false,
+  synchronize: process.env.NODE_ENV === 'development'
 })
+@Log4js()
+@KoaStatic()
+@YAMLConfig()
 @Module({
-  subModules: [
-    UserModule
-  ],
+  providers: [
+    UserController,
+    UserRepository,
+    SnowflakeService,
+  ]
 })
 class AppModule {
 
   @GetLogger()
   logger!: ILogger;
+
+  @Inject(UserRepository)
+  userRepository!:UserRepository
 
   async onInit() {
     this.logger.info('app onInit');
@@ -40,7 +39,13 @@ class AppModule {
   async onAppDidReady () {
     this.logger.info('app onAppDidReady');
 
-    this.logger.info(JSON.stringify(getConnection('boss').manager.find(UserModule.Entities.User)));
+    const users = await this.userRepository.findAllUsers();
+    this.logger.info(JSON.stringify(users));    
+  }
+
+  @RequestMapping.Get('/')
+  async home(@RequestParams.Context() context: IKoaContext) {
+    context.redirect('/public/apidoc/index.html');
   }
 }
 

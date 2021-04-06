@@ -1,24 +1,29 @@
 {
   "name": "@augejs/examples-typeorm",
   "scripts": {
-    "start": "ts-node ./src/main.ts",
+    "start": "NODE_ENV=development ts-node ./src/main.ts",
     "prebuild": "rimraf dist",
     "build": "tsc --build ./tsconfig.json",
     "postbuild": "copyfiles public/* dist/public/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apidoc": "apidoc -i src/ -f \".*\\.ts$\" -t \"apidoc/template\" -o public/apidoc"
+    "apidoc": "rimraf public/apidoc && apidoc -i src/ -f \".*\\.ts$\" -o public/apidoc",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "typeorm:schema:sync": "npm run typeorm schema:sync"
   },
   "apidoc": {
     "title": "Custom apiDoc browser title"
   },
   "dependencies": {
     "@augejs/core": "^1.0.6",
-    "@augejs/i18n": "^1.2.5",
-    "@augejs/koa": "^1.2.5",
+    "@augejs/file-config": "^1.2.6",
+    "@augejs/i18n": "^1.2.6",
+    "@augejs/koa": "^1.2.6",
     "@augejs/koa-bodyparser": "^1.0.10",
     "@augejs/koa-static": "^1.0.10",
-    "@augejs/redis": "^1.2.5",
-    "@augejs/typeorm": "^1.2.5",
-    "mysql": "^2.18.1"
+    "@augejs/log4js": "^1.2.6",
+    "@augejs/redis": "^1.2.6",
+    "@augejs/typeorm": "^1.2.6",
+    "mysql": "^2.18.1",
+    "nodejs-snowflake": "^1.5.1"
   }
 }

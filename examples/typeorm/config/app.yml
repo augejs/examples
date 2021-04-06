@@ -1,0 +1,25 @@
+webserver:
+  port: 5003
+
+static:
+  prefix: '/public'
+
+typeorm:
+  type: mysql
+  host: 106.14.147.173
+  port: 3306
+  database: poppy
+  username: root
+  password: example
+
+log4js:
+  appenders:
+    out:
+      type: 'stdout'
+  categories:
+    default:
+      appenders:
+        - 'out'
+      level: 'all'
+
+
