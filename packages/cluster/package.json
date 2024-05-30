@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "@augejs/core": "^1.0.3",
-    "@augejs/koa": "^1.0.3"
+    "@augejs/koa": "^1.6.4"
   }
 }
