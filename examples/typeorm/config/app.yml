@@ -11,6 +11,7 @@ typeorm:
   database: poppy
   username: root
   password: example
+  maxQueryExecutionTime: 2000
 
 log4js:
   appenders:

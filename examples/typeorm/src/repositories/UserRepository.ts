@@ -18,8 +18,6 @@ export class UserRepository {
   }
 
   async createNewUser(): Promise<User> {
-
-    Role
     
     const user: User = new User();
     user.userNo = await this.snowflakeService.getUniqueId();

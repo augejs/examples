@@ -19,14 +19,14 @@ export class User {
 
   @Column({
     type: 'bigint',
-    comment: 'orgNo for user'
+    comment: 'orgNo SnowflakeNo format'
   })
   @Index()
   orgNo!: bigint;
 
   @Column({
     type: 'bigint',
-    comment: 'appNo for user'
+    comment: 'appNo SnowflakeNo format'
   })
   @Index()
   appNo!: bigint;
